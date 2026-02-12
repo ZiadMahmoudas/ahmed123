@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Footer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Professional Footer - Final</title>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css">
     
     <style>
         /* --- 1. Reset & Variables --- */
         :root {
-            --bg-color: #050505;
+            --bg-color: #000000; /* أسود نقي */
             --text-color: #b3b3b3;
             --heading-color: #ffffff;
-            --accent-color: #800020; /* اللون العنابي للزر */
+            --accent-color: #800020; /* اللون العنابي */
             --accent-hover: #a30029;
-            --gold-color: #e6c888; /* لون خلفية أيقونات السوشيال */
+            --gold-color: #EEC998; /* اللون الذهبي المطلوب */
             --border-color: #333;
         }
 
@@ -30,159 +30,166 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* لكي يظهر الفوتر في الأسفل */
+            justify-content: flex-end;
         }
 
         /* --- 2. Footer Layout --- */
         .footer {
             background-color: var(--bg-color);
             color: var(--text-color);
-            padding: 60px 0 20px;
+            padding: 70px 0 30px;
             position: relative;
             overflow: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1500px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         .footer-top {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr; /* تقسيم الأعمدة حسب الصورة */
+            grid-template-columns: 2.9fr 0.8fr 0.8fr 0.8fr 2fr;
             gap: 40px;
-            margin-bottom: 40px;
-            opacity: 0; /* للأنميشن */
-            transform: translateY(20px);
-            transition: all 0.8s ease-out;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* عندما يتم تحميل الصفحة نضيف هذا الكلاس عبر JS */
         .footer-top.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* --- 3. Columns Styling --- */
+        /* --- 3. Typography --- */
         .footer-col h4 {
             color: var(--heading-color);
-            font-size: 18px;
-            margin-bottom: 25px;
-            font-weight: 600;
-            position: relative;
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
 
-        /* Logo Section */
+        /* --- Logo Fix --- */
         .brand-logo {
             margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            display: inline-block;
         }
         
-        .brand-logo i {
-            font-size: 24px;
-            color: #fff;
-        }
-
-        .brand-logo span {
-            color: #fff;
-            font-size: 20px;
-            font-weight: bold;
+        .brand-logo img {
+            max-width: 150px;
+            height: auto;
+            display: block;
+            mix-blend-mode: screen; /* دمج الخلفية السوداء */
         }
 
         .brand-desc {
             line-height: 1.6;
             margin-bottom: 25px;
-            font-size: 14px;
-            max-width: 350px;
-        }
-
-        /* Language Switcher */
-        .lang-switch {
-            background: #1a1a1a;
-            display: inline-flex;
-            border-radius: 20px;
-            padding: 5px;
-            border: 1px solid #333;
-        }
-
-        .lang-btn {
-            padding: 5px 15px;
-            border-radius: 15px;
-            cursor: pointer;
             font-size: 13px;
+            max-width: 380px;
+        }
+
+        /* --- Language Switcher (التعديل المطلوب) --- */
+        .lang-switch {
+            background: #1a1a1a; /* خلفية داكنة للزر */
+            display: inline-flex;
+            align-items: center;
+            border-radius: 20px; /* شكل بيضاوي */
+            padding: 6px 15px;
+            border: 1px solid #333;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .lang-link {
+            text-decoration: none;
+            cursor: pointer;
             transition: 0.3s;
+        }
+
+        /* الكلمة النشطة (English) باللون الذهبي */
+        .lang-link.active {
+            color: var(--gold-color);
+        }
+
+        /* الكلمة غير النشطة (العربية) باللون الرمادي */
+        .lang-link.inactive {
             color: #777;
         }
 
-        .lang-btn.active {
-            background-color: #333;
+        .lang-link:hover {
             color: #fff;
         }
 
-        /* Links List */
+        /* الخط الفاصل */
+        .lang-divider {
+            color: #555;
+            margin: 0 8px;
+            font-size: 12px;
+        }
+
+        /* --- Links List --- */
         .footer-links ul {
             list-style: none;
         }
 
         .footer-links ul li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .footer-links ul li a {
             color: var(--text-color);
             text-decoration: none;
-            transition: 0.3s;
+            transition: all 0.3s ease;
             display: inline-block;
-            font-size: 14px;
+            font-size: 13px;
         }
 
-        /* Link Hover Animation (Slide right + Color) */
         .footer-links ul li a:hover {
-            color: var(--heading-color);
+            color: var(--gold-color);
             transform: translateX(5px);
         }
 
-        /* --- 4. Contact & Subscribe --- */
+        /* --- Contact --- */
         .contact-info div {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 15px;
-            font-size: 14px;
+            margin-bottom: 12px;
+            font-size: 13px;
         }
 
         .contact-info i {
-            margin-right: 15px;
+            margin-right: 12px;
             margin-top: 3px;
             color: #fff;
+            font-size: 14px;
         }
 
-        /* Form */
+        /* --- Form --- */
         .subscribe-form {
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         .input-group {
-            margin-bottom: 15px;
-            position: relative;
+            margin-bottom: 12px;
         }
 
         .input-group input {
             width: 100%;
-            padding: 12px 15px;
+            padding: 10px 15px;
             background: transparent;
-            border: 1px solid #444;
-            border-radius: 8px;
+            border: 1px solid #333;
+            border-radius: 6px;
             color: #fff;
             outline: none;
+            font-size: 13px;
             transition: 0.3s;
         }
 
         .input-group input:focus {
             border-color: var(--gold-color);
-            box-shadow: 0 0 8px rgba(230, 200, 136, 0.2);
         }
 
         .subscribe-btn {
@@ -191,77 +198,79 @@
             background-color: var(--accent-color);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: 600;
+            font-size: 14px;
             cursor: pointer;
             transition: 0.3s;
-            position: relative;
-            overflow: hidden;
         }
 
         .subscribe-btn:hover {
             background-color: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(128, 0, 32, 0.4);
         }
 
-        /* Social Icons */
+        /* --- Social Icons (باللون الذهبي والمقاس المضبوط) --- */
         .social-links {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-top: 25px;
+            margin-top: 20px;
         }
 
         .social-links span {
-            font-size: 14px;
+            font-size: 13px;
+            color: var(--text-color);
         }
 
         .social-icons-group {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .social-icon {
-            width: 35px;
-            height: 35px;
-            background-color: var(--gold-color);
+            /* المقاس 36px كما في الصورة */
+            width: 36px;
+            height: 36px;
+            /* الخلفية باللون الذهبي المحدد */
+            background-color: var(--gold-color); 
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #000;
+            /* الأيقونة أسود */
+            color: var(--accent-color); 
             text-decoration: none;
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy effect */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 15px;
         }
 
         .social-icon:hover {
-            transform: scale(1.2) rotate(360deg);
+            transform: scale(1.15) rotate(360deg);
             background-color: #fff;
         }
 
-        /* --- 5. Bottom Copyright --- */
+        /* --- Footer Bottom --- */
         .footer-bottom {
-            border-top: 1px solid #222;
-            padding-top: 20px;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 25px;
             text-align: center;
-            font-size: 13px;
-            color: #666;
+            font-size: 12px;
+            color: #555;
         }
 
-        /* --- 6. Responsive Design (Mobile) --- */
+        /* --- Responsive --- */
         @media (max-width: 991px) {
             .footer-top {
                 grid-template-columns: 1fr 1fr;
+                gap: 30px;
             }
         }
 
         @media (max-width: 768px) {
             .footer-top {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 35px;
             }
-            
             .brand-desc {
                 max-width: 100%;
             }
@@ -269,21 +278,24 @@
     </style>
 </head>
 <body>
+    
+    <div style="height: 50vh;"></div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-top" id="footerContent">
                 
                 <div class="footer-col">
                     <a href="#" class="brand-logo">
-                        <img src="images/logofoot.webp" alt="">
+                        <img src="images/logofoot.webp" alt="Bayt Al-Sagha Logo">
                     </a>
                     <p class="brand-desc">
-                        Bayt Al Sagha is a comprehensive and leading online store in the Kingdom of Saudi Arabia and the Gulf region, specializing in providing all the tools and supplies needed for goldsmithing.
-                    </p>
+Bayt Al Sagha is a comprehensive and leading online store in the Kingdom of Saudi Arabia and the Gulf region, specializing in providing all the tools and supplies needed for goldsmithing and jewelry care products. We are the preferred destination for craftsmen and lovers of fine jewelry, committed to providing carefully selected, high-quality products that combine craftsmanship, quality, and elegance.                    </p>
                     
                     <div class="lang-switch">
-                        <span class="lang-btn active">English</span>
-                        <span class="lang-btn">العربية</span>
+                        <span class="lang-link active">English</span>
+                        <span class="lang-divider">|</span>
+                        <a href="#" class="lang-link inactive">العربية</a>
                     </div>
                 </div>
 
@@ -306,9 +318,8 @@
                         <li><a href="#">Contact us</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-col">
-                    <h4>Contact information</h4>
+                        <h4>Contact information</h4>
                     <div class="contact-info">
                         <div>
                             <i class="fa-solid fa-location-dot"></i>
@@ -323,6 +334,9 @@
                             <span>support@baytalsgha.sa</span>
                         </div>
                     </div>
+                </div>
+                <div class="footer-col">
+                
 
                     <form class="subscribe-form">
                         <div class="input-group">
@@ -350,28 +364,16 @@
     </footer>
 
     <script>
-        // JS Animation: Fade in footer elements when scrolling down
         document.addEventListener("DOMContentLoaded", function() {
             const footerContent = document.getElementById('footerContent');
-            
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         footerContent.classList.add('visible');
                     }
                 });
-            }, { threshold: 0.2 }); // Trigger when 20% of footer is visible
-
+            }, { threshold: 0.2 });
             observer.observe(document.querySelector('.footer'));
-        });
-
-        // Simple Language Toggle Interaction (Visual Only)
-        const langBtns = document.querySelectorAll('.lang-btn');
-        langBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                langBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-            });
         });
     </script>
 </body>
