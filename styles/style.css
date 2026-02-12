@@ -1,0 +1,266 @@
+ 
+        :root {
+            --bg-color: #000000; 
+            --text-color: #b3b3b3;
+            --heading-color: #ffffff;
+            --accent-color: #800020; 
+            --accent-hover: #a30029;
+            --gold-color: #EEC998;
+            --border-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        /* --- 2. Footer Layout --- */
+        .footer {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 70px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2.9fr 0.8fr 0.8fr 0.8fr 2fr;
+            gap: 40px;
+            margin-bottom: 50px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .footer-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- 3. Typography --- */
+        .footer-col h4 {
+            color: var(--heading-color);
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        /* --- Logo Fix --- */
+        .brand-logo {
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .brand-logo img {
+            max-width: 150px;
+            height: auto;
+            filter: brightness(0) invert(1);
+            display: block;
+            mix-blend-mode: screen; /* دمج الخلفية السوداء */
+        }
+
+        .brand-desc {
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 13px;
+            max-width: 380px;
+        }
+
+        /* --- Language Switcher (التعديل المطلوب) --- */
+        .lang-switch {
+            background: #1a1a1a; /* خلفية داكنة للزر */
+            display: inline-flex;
+            align-items: center;
+            border-radius: 20px; /* شكل بيضاوي */
+            padding: 6px 15px;
+            border: 1px solid #333;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .lang-link {
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* الكلمة النشطة (English) باللون الذهبي */
+        .lang-link.active {
+            color: var(--gold-color);
+        }
+
+        /* الكلمة غير النشطة (العربية) باللون الرمادي */
+        .lang-link.inactive {
+            color: #777;
+        }
+
+        .lang-link:hover {
+            color: #fff;
+        }
+
+        /* الخط الفاصل */
+        .lang-divider {
+            color: #555;
+            margin: 0 8px;
+            font-size: 12px;
+        }
+
+        /* --- Links List --- */
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 13px;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--gold-color);
+            transform: translateX(5px);
+        }
+
+        /* --- Contact --- */
+        .contact-info div {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 13px;
+            gap: 5px;
+        }
+
+        .contact-info i {
+            margin-right: 12px;
+            margin-top: 3px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        /* --- Form --- */
+        .subscribe-form {
+            margin-top: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 12px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 15px;
+            background: transparent;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: #fff;
+            outline: none;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--gold-color);
+        }
+
+        .subscribe-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--accent-color);
+            color: var(--gold-color);
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .subscribe-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* --- Social Icons (باللون الذهبي والمقاس المضبوط) --- */
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links span {
+            font-size: 13px;
+            color: var(--text-color);
+        }
+
+        .social-icons-group {
+            display: flex;
+            gap: 8px;
+        }
+
+        .social-icon {
+            /* المقاس 36px كما في الصورة */
+            width: 36px;
+            height: 36px;
+            /* الخلفية باللون الذهبي المحدد */
+            background-color: var(--gold-color); 
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* الأيقونة أسود */
+            color: var(--accent-color); 
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 15px;
+        }
+
+
+        /* --- Footer Bottom --- */
+        .footer-bottom {
+            border-top: 1px solid #1a1a1a;
+            padding-top: 25px;
+            text-align: center;
+            font-size: 12px;
+            color: #555;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 991px) {
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            .brand-desc {
+                max-width: 100%;
+            }
+        }
