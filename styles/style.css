@@ -84,43 +84,47 @@
         }
 
         /* --- Language Switcher (التعديل المطلوب) --- */
-        .lang-switch {
-            background: #1a1a1a; /* خلفية داكنة للزر */
-            display: inline-flex;
-            align-items: center;
-            border-radius: 20px; /* شكل بيضاوي */
-            padding: 6px 15px;
-            border: 1px solid #333;
-            font-size: 13px;
-            font-weight: 500;
-        }
+ /* --- Language Switcher Updated with ::after --- */
+.lang-switch {
+    background: #1a1a1a;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 20px;
+    padding: 6px 15px;
+    border: 1px solid #333;
+    font-size: 13px;
+    font-weight: 500;
+}
 
-        .lang-link {
-            text-decoration: none;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.lang-link {
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    position: relative; /* مهم عشان الـ after */
+}
 
-        /* الكلمة النشطة (English) باللون الذهبي */
-        .lang-link.active {
-            color: var(--gold-color);
-        }
+.lang-link:first-child::after {
+    content: ""; /* محتوى فارغ للرسم */
+    display: inline-block; /* ضروري لتطبيق الأبعاد */
+    width: 3px; /* عرض الخط الفاصل */
+    height: 26px; /* طول الخط الفاصل */
+    background-color: #fff; /* لون الخط الفاصل */
+    margin: 0 10px; /* المسافة يمين ويسار الخط */
+}
 
-        /* الكلمة غير النشطة (العربية) باللون الرمادي */
-        .lang-link.inactive {
-            color: #777;
-        }
+.lang-link.active {
+    color: var(--gold-color);
+}
 
-        .lang-link:hover {
-            color: #fff;
-        }
+.lang-link.inactive {
+    color: #777;
+}
 
-        /* الخط الفاصل */
-        .lang-divider {
-            color: #555;
-            margin: 0 8px;
-            font-size: 12px;
-        }
+.lang-link:hover {
+    color: #fff;
+}
 
         /* --- Links List --- */
         .footer-links ul {
